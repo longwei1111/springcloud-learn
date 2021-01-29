@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: springcloud-hystrix-dashboard
+
+server:
+  port: 3721

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: springcloud-eureka-servier
+
+server:
+  port: 8700
+
+# 设置该服务中心的hostname，指定ip，该实例名称不能重复
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 禁止向注册中心注册自己
+    register-with-eureka: false
+    # 不从Eureka Server获取注册信息
+    fetch-registry: false
+    # 指定服务注册中心的位置
+    # 如果是集群，Eureka集群相互指向注册中心
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  server:
+    # 自我保护模式，默认开启；可以选择关闭，保证不可用的服务及时剔除
+    enable-self-preservation: true
+    # 剔除失效服务间隔单位ms，默认1分种
+    eviction-interval-timer-in-ms: 20000
+    # 留存的服务示例低于多少比例进入保护模式，默认85%
+    renewal-percent-threshold: 0.5

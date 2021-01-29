@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: springcloud-eureka-servier
+
+server:
+  port: 8701
+
+# 设置该服务中心的hostname，指定ip，该实例名称不能重复
+eureka:
+  instance:
+    hostname: eureka8701
+  client:
+    # 向注册中心注册自己
+    register-with-eureka: true
+    # 从Eureka Server获取注册信息
+    fetch-registry: true
+    # 指定服务注册中心的位置, Eureka集群相互指向注册中心
+    service-url:
+      defaultZone: http://eureka8702:8702/eureka
+  server:
+    enable-self-preservation: false
+    #留存的服务示例低于多少比例进入保护模式
+    renewal-percent-threshold: 0.5

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: springcloud-service-consumer
+
+server:
+  port: 9090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8700/eureka
+
+# 用来暴露endpoints端点，health和info端点支持直接访问，其他端点默认不能直接访问
+# 也可以设置endpoints端点全部访问,设置为*
+# 如果只写了hystrix.stream，会默认把health和info端点关闭
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["info", "health", "hystrix.stream"]
