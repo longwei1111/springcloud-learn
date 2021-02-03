@@ -2,6 +2,7 @@ package com.coolw.springcloudlearn.service;
 
 import com.coolw.springcloudlearn.handler.MyFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // 通过@FeignClient注解来指定服务名称进而绑定服务
 // fallback = MyFallback.class
 @FeignClient(value = "SPRINGCLOUD-SERVICE-PROVIDER", fallbackFactory = MyFallbackFactory.class)
+@Service
 public interface HelloService {
 
     /**

@@ -8,7 +8,10 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8700/eureka
+      # 单机版
+      defaultZone: http://localhost:8700/eureka/
+      # 集群版
+      # defaultZone: http://eureka8701:8701/eureka/, http://eureka8702:8702/eureka/
 
 # 用来暴露endpoints端点，health和info端点支持直接访问，其他端点默认不能直接访问
 # 也可以设置endpoints端点全部访问,设置为*

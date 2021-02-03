@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.coolw</groupId>
         <artifactId>springcloud-learn</artifactId>
@@ -9,17 +10,10 @@
     </parent>
 
     <groupId>com.coolw</groupId>
-    <artifactId>springcloud-eureka-service</artifactId>
+    <artifactId>coolw-common</artifactId>
     <version>${coolw.version}</version>
+    <name>coolw-common</name>
     <packaging>jar</packaging>
-
-    <dependencies>
-        <!-- eureka 注册中心服务端依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
@@ -29,4 +23,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

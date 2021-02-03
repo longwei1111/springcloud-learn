@@ -1,6 +1,7 @@
 package com.coolw.springcloudlearn.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.coolw.springcloud.domain.User;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -12,8 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProviderController {
 
-    @RequestMapping("/provider/hello")
+    @GetMapping("/provider/hello")
     public String hello() {
         return "spring cloud provider-01 hello world";
     }
+
+    @GetMapping("/provider/getUser")
+    public User getUser() {
+        return User.builder().id(888888).userName("coolw").password("123456").mobileNo("15000994425").build();
+    }
+
 }

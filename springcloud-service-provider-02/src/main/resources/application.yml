@@ -8,4 +8,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8700/eureka
+      # 单机
+      defaultZone: http://localhost:8700/eureka/
+      # 集群版
+      #defaultZone: http://eureka8701:8701/eureka/, http://eureka8702:8702/eureka/, http://eureka8703:8703/eureka/

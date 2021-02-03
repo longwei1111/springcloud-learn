@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author lw
  */
 @RestController
-public class ProviderController {
+public class ProviderClusterController {
 
     @GetMapping("/provider/hello")
     public String hello() {
