@@ -1,9 +1,7 @@
 package com.coolw.springcloud.domain;
 
 import com.coolw.springcloud.api.BaseDomain;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * @Classname User
@@ -14,6 +12,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User extends BaseDomain {
 
     private static final long serialVersionUID = 3391470912504085770L;

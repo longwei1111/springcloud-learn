@@ -24,7 +24,7 @@ public class MyHystrixCommand extends HystrixCommand<String> {
      * 当远程服务超时、异常、不可用等情况会触发熔断方法
      */
     @Override
-    protected String run() throws Exception {
+    protected String run() {
         return restTemplate.getForEntity("http://SPRINGCLOUD-SERVICE-PROVIDER/provider/hello", String.class).getBody();
     }
 

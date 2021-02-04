@@ -1,5 +1,6 @@
 package com.coolw.springcloudlearn.controller;
 
+import com.coolw.springcloud.api.CommonResult;
 import com.coolw.springcloud.domain.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -59,16 +62,22 @@ public class ConsumerController {
         return responseEntity.getBody();
     }
 
+    @GetMapping("/consumer/hello3")
+    public CommonResult<User> hello3() {
+        CommonResult commonResult = restTemplate.postForEntity("http://SPRINGCLOUD-SERVICE-PROVIDER/provider/postHello", null, CommonResult.class).getBody();
+        return commonResult;
+    }
+
     /**
-     * hystrix默认超时时间为1000ms，如果后端响应时间超过此时间，就会处罚断路器
+     * hystrix默认超时时间为1000ms，如果后端响应时间超过此时间，就会触发断路器
      * fallbackMethod：发生熔断，对应的处理方法；属性ignoreExceptions忽略指定异常
      * 此处不会抛出异常，只是服务降级，被error方法拦截处理
      */
     @GetMapping("/consumer/hystrix")
-    @HystrixCommand(fallbackMethod = "error", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3500")})
+    @HystrixCommand(fallbackMethod = "error", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")})
     public String hystrix() {
         // 除数不能为0，这一行代码会触发熔断
-        int a = 10 / 0;
+        //int a = 10 / 0;
         return restTemplate.getForEntity("http://SPRINGCLOUD-SERVICE-PROVIDER/provider/hello", String.class).getBody();
     }
 

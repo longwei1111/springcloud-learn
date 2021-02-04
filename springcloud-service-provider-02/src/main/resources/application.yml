@@ -6,6 +6,10 @@ server:
   port: 8081
 
 eureka:
+  instance:
+    # 使用指定的IP注册
+    prefer-ip-address: true
+  #    ip-address: 127.0.0.1
   client:
     service-url:
       # 单机

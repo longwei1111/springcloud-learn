@@ -18,6 +18,7 @@ eureka:
     service-url:
       defaultZone: http://eureka8701:8701/eureka/, http://eureka8703:8703/eureka/
   server:
+    # 关闭服务保护机制
     enable-self-preservation: false
-    #留存的服务示例低于多少比例进入保护模式
-    renewal-percent-threshold: 0.5
+    # 剔除失效服务间隔单位ms，默认1分种
+    eviction-interval-timer-in-ms: 30000

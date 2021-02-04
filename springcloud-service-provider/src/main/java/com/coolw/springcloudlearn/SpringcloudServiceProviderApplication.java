@@ -2,14 +2,13 @@ package com.coolw.springcloudlearn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * "@EnableEurekaClient"：Eureka注册中心，推荐使用
  * "@EnableDiscoveryClient"：其他注册中心，推荐使用
  */
-//@EnableEurekaClient
-@EnableDiscoveryClient
+@EnableEurekaClient
 @SpringBootApplication
 public class SpringcloudServiceProviderApplication {
 
