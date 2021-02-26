@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.lyh</groupId>
         <artifactId>coolw-springcloud</artifactId>
@@ -10,10 +9,23 @@
     </parent>
 
     <groupId>com.lyh</groupId>
-    <artifactId>coolw-common</artifactId>
+    <artifactId>coolw-provider-service</artifactId>
     <version>${coolw.version}</version>
-    <name>coolw-common</name>
     <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- spring cloud 集成eureka客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lyh</groupId>
+            <artifactId>coolw-common</artifactId>
+            <version>${coolw.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

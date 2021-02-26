@@ -1,0 +1,20 @@
+server:
+  port: 8702
+
+# 设置该服务中心的hostname，指定ip，该实例名称不能重复
+eureka:
+  instance:
+    hostname: eureka8702
+  client:
+    # 是否将自己注册到Eureka-Server中，默认的为true
+    register-with-eureka: true
+    # 是否从Eureka-Server中获取服务注册信息，默认为true
+    fetch-registry: true
+    # 指定服务注册中心的位置, Eureka集群相互指向注册中心 # C:\Windows\System32\drivers\etc\hosts
+    service-url:
+      defaultZone: http://eureka8701:8701/eureka/, http://eureka8703:8703/eureka/
+  server:
+    # 关闭服务保护机制
+    enable-self-preservation: false
+    # 剔除失效服务间隔单位ms，默认1分种
+    eviction-interval-timer-in-ms: 30000

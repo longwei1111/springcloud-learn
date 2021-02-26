@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: coolw-consumer-service
+
+server:
+  port: 9090
+
+eureka:
+  instance:
+    # 使用指定的IP注册
+    prefer-ip-address: true
+#    ip-address: 127.0.0.1
+  client:
+    service-url:
+      # 单机版
+      defaultZone: http://localhost:8700/eureka/
+      # 集群版
+      #defaultZone: http://eureka8701:8701/eureka/, http://eureka8702:8702/eureka/, http://eureka8703:8703/eureka/
+    #客户端每隔30秒从Eureka服务上更新一次服务信息
+    registry-fetch-interval-seconds: 30
+    #需要将我的服务注册到eureka上
+    register-with-eureka: true
+    #需要检索服务
+    fetch-registry: true
+
+# 用来暴露endpoints端点，health和info端点支持直接访问，其他端点默认不能直接访问
+# 也可以设置endpoints端点全部访问,设置为*
+# 如果只写了hystrix.stream，会默认把health和info端点关闭
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["info", "health", "hystrix.stream"]

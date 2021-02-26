@@ -9,8 +9,8 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.coolw</groupId>
-    <artifactId>springcloud-learn</artifactId>
+    <groupId>com.lyh</groupId>
+    <artifactId>coolw-springcloud</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
@@ -25,12 +25,12 @@
 
     <modules>
         <module>coolw-common</module>
-        <module>springcloud-eureka-service</module>
-        <module>springcloud-service-provider</module>
-        <module>springcloud-service-consumer</module>
-        <module>springcloud-service-provider-02</module>
-        <module>springcloud-hystrix-dashboard</module>
-        <module>springcloud-feign-service</module>
+        <module>coolw-eureka-service</module>
+        <module>coolw-provider-service</module>
+        <module>coolw-consumer-service</module>
+        <module>coolw-provider02-service</module>
+        <module>coolw-hystrix-dashboard</module>
+        <module>coolw-feign-service</module>
     </modules>
 
     <!--使用spring cloud要添加依赖管理-->
