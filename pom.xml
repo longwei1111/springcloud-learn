@@ -31,6 +31,7 @@
         <module>coolw-provider02-service</module>
         <module>coolw-hystrix-dashboard</module>
         <module>coolw-feign-service</module>
+        <module>coolw-hystrix-turbine</module>
     </modules>
 
     <!--使用spring cloud要添加依赖管理-->
